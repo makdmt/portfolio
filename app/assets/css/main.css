@@ -4,12 +4,17 @@
 :root {
     --surface-primary: #f8f8f8;
     --text-primary: #222;
+    --white: white;
     /*--surface-secondary: #2b3036;*/
     /*--surface-accent: #b2c9e5;*/
     /*--text-secondary: #a3abb3;*/
     /*--text-accent: #7ab8ff;*/
-    
+
     color-scheme: light;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
@@ -29,13 +34,18 @@ body {
 :where(h1, h2, h3, h4, h5, h6) {
     font-family: "Playfair Display", "Georgia", serif;
     font-optical-sizing: auto;
-    font-weight: 400;
+    font-weight: 700;
     font-style: normal;
 }
 
 h1 {
     font-size: 72px;
     line-height: 88px;
+}
+
+h2 {
+    font-size: 42px;
+    line-height: 56px;
 }
 
 p {
