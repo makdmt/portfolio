@@ -1,9 +1,13 @@
 <script setup lang="ts">
+import type {PreviewFormat} from "../types";
+
 const props = defineProps<{
   heading: string,
   description: string,
+  previewFormat: PreviewFormat,
   srcHigh: string,
-  srcLow?: string
+  srcLow?: string,
+  waitSoon?: boolean
 }>();
 
 </script>
@@ -17,7 +21,8 @@ const props = defineProps<{
         <slot name="technologies"></slot>
       </div>
     </div>
-    <MobilePreview :src-high="srcHigh" :src-low="srcLow" alt="project demo"/>
+    <DesktopPreview v-if="previewFormat === 'desktop'" :src-high="srcHigh" :src-low="srcLow" alt="project demo" :wait-soon="waitSoon"/>
+    <MobilePreview v-else-if="previewFormat === 'mobile'" :src-high="srcHigh" :src-low="srcLow" alt="project demo"/>
   </div>
 
 </template>
@@ -33,6 +38,12 @@ const props = defineProps<{
 .description_container {
   display: flex;
   flex-direction: column;
+}
+
+@media only screen and (max-width: 725px) {
+  .container {
+    flex-wrap: wrap;
+  }
 }
 
 </style>
