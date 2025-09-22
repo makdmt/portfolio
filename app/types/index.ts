@@ -10,4 +10,5 @@ export type Project = {
     srcLow?: string,
     waitSoon?: boolean,
     technologies?: Technologies[],
+    url?: string
 }

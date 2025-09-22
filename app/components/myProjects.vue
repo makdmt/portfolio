@@ -8,7 +8,8 @@ const projects: Project[] = [
     previewFormat: 'mobile',
     srcHigh: '/imgs/i18n.gif',
     srcLow: '/imgs/i18n.webp',
-    technologies: ['React', 'Formatjs']
+    technologies: ['React', 'Formatjs'],
+    url: 'https://makdmt.github.io/i18n2025/'
   },
   {
     title: 'ERP система для EVENT бизнеса',
@@ -16,7 +17,8 @@ const projects: Project[] = [
     previewFormat: 'desktop',
     srcHigh: '/imgs/erp.gif',
     srcLow: '/imgs/erp.webp',
-    technologies: ['Vue', 'Firebase', 'Node']
+    technologies: ['Vue', 'Firebase', 'Node'],
+    url: 'https://dive-event.web.app/about/'
   },
   {
     title: 'PWA таск менеджер на ios и android',
@@ -24,7 +26,8 @@ const projects: Project[] = [
     previewFormat: 'mobile',
     srcHigh: '/imgs/pwa.gif',
     srcLow: '/imgs/pwa.webp',
-    technologies: ['PWA', 'Vue', 'Firebase', 'Node']
+    technologies: ['PWA', 'Vue', 'Firebase', 'Node'],
+    url: 'https://dive-event.web.app/'
   },
   {
     title: 'Сайт салона межкомнатных дверей',
@@ -32,6 +35,7 @@ const projects: Project[] = [
     previewFormat: 'mobile',
     srcHigh: '/imgs/shop.gif',
     srcLow: '/imgs/shop.webp',
+    url: 'https://design-doors-ola.ru/'
   },
   {
     title: 'Конфигуратор заказов для фабрики дверей',
@@ -39,7 +43,7 @@ const projects: Project[] = [
     previewFormat: 'desktop',
     srcHigh: '/imgs/doorCalc.webp',
     waitSoon: true,
-    technologies: ['Vue', 'Firebase']
+    technologies: ['Vue', 'Firebase'],
   },
 ]
 
@@ -57,6 +61,7 @@ const projects: Project[] = [
             :preview-format="item.previewFormat"
             :src-high="item.srcHigh"
             :src-low="item.srcLow"
+            :url="item.url"
             :wait-soon="item.waitSoon"
         >
           <template #technologies>
