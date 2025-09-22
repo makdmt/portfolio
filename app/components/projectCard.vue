@@ -7,7 +7,8 @@ const props = defineProps<{
   previewFormat: PreviewFormat,
   srcHigh: string,
   srcLow?: string,
-  waitSoon?: boolean
+  waitSoon?: boolean,
+  url?: string
 }>();
 
 </script>
@@ -15,14 +16,27 @@ const props = defineProps<{
 <template>
   <div class="container">
     <div class="description_container">
-      <h2>{{ heading }}</h2>
+      <component
+          :is="url ? 'a' : 'div'"
+          :class="{link: !!url}"
+          :href="url"
+          :target="url ? '_blank' : undefined">
+        <h2>{{ heading }}</h2>
+      </component>
       <p>{{ description }}</p>
       <div style="margin-top: auto">
         <slot name="technologies"></slot>
       </div>
     </div>
-    <DesktopPreview v-if="previewFormat === 'desktop'" :src-high="srcHigh" :src-low="srcLow" alt="project demo" :wait-soon="waitSoon"/>
-    <MobilePreview v-else-if="previewFormat === 'mobile'" :src-high="srcHigh" :src-low="srcLow" alt="project demo"/>
+    <component
+        :is="url ? 'a' : 'div'"
+        :class="{link: !!url}"
+        :href="url"
+        :target="url ? '_blank' : undefined">
+      <DesktopPreview v-if="previewFormat === 'desktop'" :src-high="srcHigh" :src-low="srcLow" alt="project demo"
+                      :wait-soon="waitSoon"/>
+      <MobilePreview v-else-if="previewFormat === 'mobile'" :src-high="srcHigh" :src-low="srcLow" alt="project demo"/>
+    </component>
   </div>
 
 </template>
@@ -38,6 +52,10 @@ const props = defineProps<{
 .description_container {
   display: flex;
   flex-direction: column;
+}
+
+.link {
+  cursor: pointer;
 }
 
 @media only screen and (max-width: 725px) {
