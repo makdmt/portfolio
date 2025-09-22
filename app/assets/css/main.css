@@ -53,6 +53,15 @@ h2 {
     margin-inline-end: 0;
 }
 
+h3 {
+    font-size: 32px;
+    line-height: 46px;
+    margin-block-start: 0.43em;
+    margin-block-end: 0.43em;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
+}
+
 p {
     font-family: "Montserrat", "Arial", sans-serif;
     font-optical-sizing: auto;
@@ -66,13 +75,33 @@ p {
     margin-inline-end: 0;
 }
 
+a {
+    font-family: "Montserrat", "Arial", sans-serif;
+    letter-spacing: .03em;
+    font-size: 16px;
+    line-height: 20px;
+    text-decoration: none;
+    padding: 8px;
+    color: var(--text-primary);
+    transition: opacity 200ms ease-in-out;
+}
+
+a:hover {
+    opacity: .8;
+}
+
 @media only screen and (max-width: 725px) {
     h2 {
         font-size: 32px;
         line-height: 46px;
     }
 
-    p {
+    h3 {
+        font-size: 26px;
+        line-height: 36px;
+    }
+
+    p,a {
         font-size: 16px;
         line-height: 26px;
     }
