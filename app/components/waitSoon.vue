@@ -63,4 +63,12 @@ const props = defineProps<{
   }
 }
 
+@media only screen and (max-width: 725px) {
+  .text {
+    font-size: 32px;
+    width: 102px;
+    height: 32px;
+  }
+}
+
 </style>
