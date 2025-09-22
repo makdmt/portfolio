@@ -18,8 +18,9 @@ html {
 }
 
 body {
-    width: 100%;
+    width: 90%;
     height: 100%;
+    margin: 0 auto;
     color: var(--text-primary);
     background-color: var(--surface-primary);
 }
@@ -46,6 +47,10 @@ h1 {
 h2 {
     font-size: 42px;
     line-height: 56px;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
 }
 
 p {
@@ -55,4 +60,21 @@ p {
     font-style: normal;
     font-size: 18px;
     line-height: 28px;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
 }
+
+@media only screen and (max-width: 725px) {
+    h2 {
+        font-size: 32px;
+        line-height: 46px;
+    }
+
+    p {
+        font-size: 16px;
+        line-height: 26px;
+    }
+}
+
