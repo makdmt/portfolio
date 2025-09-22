@@ -41,4 +41,11 @@ const {loaded} = useImagePreload(props.srcHigh);
   }
 }
 
+@media only screen and (max-width: 465px) {
+  .image {
+    width: 80vw;
+    height: 55.7vw;
+  }
+}
+
 </style>
