@@ -84,6 +84,7 @@ a {
     padding: 8px;
     color: var(--text-primary);
     transition: opacity 200ms ease-in-out;
+    cursor: pointer;
 }
 
 a:hover {
