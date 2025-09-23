@@ -4,9 +4,9 @@
 
 <template>
   <footer class="container">
-    <QualityAssured/>
+    <QualityAssured style="margin-block-start: 8px;"/>
     <div class="signature">
-      <h3 class="author_name">Дмитрий Макаров</h3>
+      <p class="author_name title">Дмитрий Макаров</p>
       <MyContacts style="justify-content: flex-end"/>
     </div>
   </footer>
@@ -24,9 +24,10 @@
 
 .author_name {
   text-align: right;
-  margin-block-end: 6px;
+  margin-block-end: 0;
+  font-size: 26px;
+  line-height: 36px;
 }
-
 
 
 </style>
