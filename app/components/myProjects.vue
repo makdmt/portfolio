@@ -53,6 +53,8 @@ projects.forEach(project => {
   if (project.srcLow) project.srcLow = baseUrl + project.srcLow;
 });
 
+const waitForHighImgLoad = ref<number>(0);
+
 // Встроенный ИИ помощник помогает лучше подбирать конфигурации под запросы пользователей.
 
 </script>
@@ -61,7 +63,7 @@ projects.forEach(project => {
   <section>
     <h2 class="visually-hidden">Проекты</h2>
     <ul class="card_list">
-      <li v-for="item of projects">
+      <li v-for="(item, index) in projects">
         <ProjectCard
             :heading="item.title"
             :description="item.description"
@@ -70,6 +72,8 @@ projects.forEach(project => {
             :src-low="item.srcLow"
             :url="item.url"
             :wait-soon="item.waitSoon"
+            :start-high-img-load="waitForHighImgLoad === index"
+            @highImgLoaded="waitForHighImgLoad++"
         >
           <template #technologies>
             <p v-if="item.technologies?.length">Стек: {{ item.technologies?.join(', ') }}</p>

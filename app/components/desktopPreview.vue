@@ -1,15 +1,40 @@
 <script setup lang="ts">
 
-import {useImagePreload} from "../composables/useImagePreload";
-
 const props = defineProps<{
   srcHigh: string;
+  startHighImgLoad: boolean;
   srcLow?: string;
   alt: string;
   waitSoon?: boolean;
 }>();
 
-const {loaded} = useImagePreload(props.srcHigh);
+const loaded = ref<boolean>(false);
+
+watch(() => props.startHighImgLoad, (start) => {
+  if (!start) return;
+  try {
+    const img = new Image();
+    img.src = props.srcHigh;
+    img.onload = () => {
+      loaded.value = true;
+      emitter(true);
+    };
+    img.onerror = () => {
+      emitter(false);
+    }
+  } catch (err) {
+    console.error(err)
+  }
+
+}, {immediate: true});
+
+const emit = defineEmits<{
+  (event: 'highImgLoaded', value: boolean): void;
+}>();
+
+function emitter(success: boolean) {
+  emit('highImgLoaded', success);
+}
 
 </script>
 

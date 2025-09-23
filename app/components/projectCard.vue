@@ -6,9 +6,14 @@ const props = defineProps<{
   description: string,
   previewFormat: PreviewFormat,
   srcHigh: string,
+  startHighImgLoad: boolean,
   srcLow?: string,
   waitSoon?: boolean,
   url?: string
+}>();
+
+const emit = defineEmits<{
+  (event: 'highImgLoaded', value: boolean): void;
 }>();
 
 </script>
@@ -33,9 +38,23 @@ const props = defineProps<{
         :class="{link: !!url}"
         :href="url"
         :target="url ? '_blank' : undefined">
-      <DesktopPreview v-if="previewFormat === 'desktop'" :src-high="srcHigh" :src-low="srcLow" alt="project demo"
-                      :wait-soon="waitSoon"/>
-      <MobilePreview v-else-if="previewFormat === 'mobile'" :src-high="srcHigh" :src-low="srcLow" alt="project demo"/>
+      <DesktopPreview
+          v-if="previewFormat === 'desktop'"
+          :src-high="srcHigh"
+          :src-low="srcLow"
+          :wait-soon="waitSoon"
+          :start-high-img-load="startHighImgLoad"
+          :alt="`Демо проекта ${heading}`"
+          @highImgLoaded="emit('highImgLoaded', $event)"
+      />
+      <MobilePreview
+          v-else-if="previewFormat === 'mobile'"
+          :src-high="srcHigh"
+          :src-low="srcLow"
+          :start-high-img-load="startHighImgLoad"
+          :alt="`Демо проекта ${heading}`"
+          @highImgLoaded="emit('highImgLoaded', $event)"
+      />
     </component>
   </div>
 
