@@ -15,7 +15,7 @@ function handleHeaderVisibilityOnScroll() {
   if (deltaY > 0) {
     isHidden.value = true;
   } else if (deltaY < 0) {
-    if (Math.abs(speed) > 0.2) {
+    if (Math.abs(speed) > 1.5) {
       isHidden.value = false;
     }
   }
