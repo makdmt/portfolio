@@ -46,6 +46,12 @@ const projects: Project[] = [
     technologies: ['Vue', 'Firebase'],
   },
 ]
+const baseUrl = useRuntimeConfig().app.baseURL.slice(0, -1);
+
+projects.forEach(project => {
+  project.srcHigh = baseUrl + project.srcHigh;
+  if (project.srcLow) project.srcLow = baseUrl + project.srcLow;
+});
 
 // Встроенный ИИ помощник помогает лучше подбирать конфигурации под запросы пользователей.
 

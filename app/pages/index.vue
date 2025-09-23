@@ -9,7 +9,7 @@ useHead({
       property: 'og:description',
       content: '5+ лет опыта разработки на Vue, React, Node.js, Express и других Js/Ts фреймворках.'
     },
-    {property: 'og:image', content: 'https://makdmt.github.io/portfolio/preview.webp'},
+    {property: 'og:image', content: 'https://makdmt.github.io/portfolio/imgs/preview.jpg'},
     {property: 'og:url', content: 'https://makdmt.github.io/portfolio'},
     {property: 'og:type', content: 'website'},
     {property: 'og:site_name', content: 'Дмитрий Макаров. Портфолио'},
@@ -21,7 +21,7 @@ useHead({
       name: 'twitter:description',
       content: '5+ лет опыта разработки на Vue, React, Node.js, Express и других Js/Ts фреймворках.'
     },
-    {name: 'twitter:image', content: 'https://makdmt.github.io/portfolio/preview.webp'}
+    {name: 'twitter:image', content: 'https://makdmt.github.io/portfolio/imgs/preview.jpg'}
   ],
   link: [
     {rel: 'canonical', href: 'https://example.com/portfolio'}
