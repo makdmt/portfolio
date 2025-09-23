@@ -4,8 +4,8 @@
 
 <template>
   <div class="contacts_block">
-    <a href="https://t.me/Makemt" target="_blank">telegram</a>
-    <a href="https://github.com/makdmt" target="_blank">github</a>
+    <a href="https://t.me/Makemt" target="_blank" class="link">telegram</a>
+    <a href="https://github.com/makdmt" target="_blank" class="link">github</a>
   </div>
 </template>
 
@@ -13,6 +13,10 @@
 .contacts_block {
   display: flex;
   gap: 16px;
+}
+
+.link {
+  padding: 8px;
 }
 
 @media only screen and (max-width: 725px) {
