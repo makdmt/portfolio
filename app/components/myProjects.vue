@@ -53,6 +53,7 @@ const projects: Project[] = [
 
 <template>
   <section>
+    <h2 class="visually-hidden">Проекты</h2>
     <ul class="card_list">
       <li v-for="item of projects">
         <ProjectCard

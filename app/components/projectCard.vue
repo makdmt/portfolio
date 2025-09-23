@@ -21,7 +21,7 @@ const props = defineProps<{
           :class="{link: !!url}"
           :href="url"
           :target="url ? '_blank' : undefined">
-        <h2>{{ heading }}</h2>
+        <h3>{{ heading }}</h3>
       </component>
       <p>{{ description }}</p>
       <div style="margin-top: auto">
