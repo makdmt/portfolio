@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <div class="quality_container">
+  <div class="quality_container" aria-hidden="true">
     <div class="leaves_container">
       <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="22" height="40"
            class="g-icon" fill="currentColor" stroke="none" aria-hidden="true">
@@ -241,7 +241,7 @@
         </svg>
       </svg>
     </div>
-    <h5 class="caption">Quality assured</h5>
+    <p class="caption title">Quality assured</p>
   </div>
 </template>
 
