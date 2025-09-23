@@ -1,11 +1,111 @@
 <script setup lang="ts">
 
+const isHidden = ref(false);
+
+let lastScroll = 0;
+let lastTime = Date.now();
+
+function handleHeaderVisibilityOnScroll() {
+  const current = window.scrollY;
+  const now = Date.now();
+  const deltaY = current - lastScroll;
+  const deltaT = now - lastTime;
+  const speed = deltaY / (deltaT || 1); // px/ms
+
+  if (deltaY > 0) {
+    isHidden.value = true;
+  } else if (deltaY < 0) {
+    if (Math.abs(speed) > 0.2) {
+      isHidden.value = false;
+    }
+  }
+  lastScroll = current;
+  lastTime = now;
+}
+
+const activeLink = ref<'aboutMe' | 'myProjects' | 'footer'>('aboutMe');
+
+function activateLinkOnScroll() {
+  if (window.scrollY < 300) {
+    activeLink.value = 'aboutMe';
+    return;
+  }
+
+  const scrollTop = window.scrollY || document.documentElement.scrollTop;
+  const windowHeight = window.innerHeight;
+  const docHeight = document.documentElement.scrollHeight;
+
+  if (scrollTop + windowHeight >= docHeight) {
+    activeLink.value = 'footer';
+    return;
+  }
+
+  activeLink.value = 'myProjects';
+}
+
+onMounted(() => {
+  window.addEventListener("scroll", handleHeaderVisibilityOnScroll);
+  window.addEventListener("scroll", activateLinkOnScroll);
+});
+
+onUnmounted(() => {
+  window.removeEventListener("scroll", handleHeaderVisibilityOnScroll);
+  window.removeEventListener("scroll", activateLinkOnScroll);
+});
+
+//background: #fff;
+//border-bottom: 1px solid #ddd;
+
 </script>
 
 <template>
-<h1>Привет! Я web-разработчик!</h1>
+  <header class="header" :class="{hidden: isHidden}">
+    <nav class="links_container">
+      <a class="link" href="#aboutMe" :class="{active: activeLink === 'aboutMe'}">Обо мне</a>
+      <a class="link" href="#myProjects" :class="{active: activeLink === 'myProjects'}">Проекты</a>
+      <a class="link" href="#footer" :class="{active: activeLink === 'footer'}">Контакты</a>
+    </nav>
+  </header>
 </template>
 
 <style scoped>
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  transition: transform 0.3s ease;
+  z-index: 10;
+  background: var(--surface-primary);
+}
+
+.header.hidden {
+  transform: translateY(-100%);
+}
+
+.links_container {
+  margin-block-start: auto;
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.link {
+  margin-inline-end: 16px;
+  padding: 28px 8px;
+  transition: opacity .3s ease;
+}
+
+.link.active {
+  opacity: .6;
+}
+
+
+@media only screen and (max-width: 725px) {
+  .link {
+    padding: 22px 8px;
+  }
+}
 
 </style>
