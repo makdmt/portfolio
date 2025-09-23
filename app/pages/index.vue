@@ -1,5 +1,37 @@
 <script setup lang="ts">
 
+useHead({
+  meta: [
+    {name: 'description', content: 'Портфолио проектов и навыки веб-разработки Дмитрия Макарова.'},
+
+    {property: 'og:title', content: 'Дмитрий Макаров — Fullstack web-разработчик'},
+    {
+      property: 'og:description',
+      content: '5+ лет опыта разработки на Vue, React, Node.js, Express и других Js/Ts фреймворках.'
+    },
+    {property: 'og:image', content: 'https://makdmt.github.io/portfolio/preview.webp'},
+    {property: 'og:url', content: 'https://makdmt.github.io/portfolio'},
+    {property: 'og:type', content: 'website'},
+    {property: 'og:site_name', content: 'Дмитрий Макаров. Портфолио'},
+
+    // Twitter Card (опционально)
+    {name: 'twitter:card', content: 'summary_large_image'},
+    {name: 'twitter:title', content: 'Дмитрий Макаров — Fullstack web-разработчик'},
+    {
+      name: 'twitter:description',
+      content: '5+ лет опыта разработки на Vue, React, Node.js, Express и других Js/Ts фреймворках.'
+    },
+    {name: 'twitter:image', content: 'https://makdmt.github.io/portfolio/preview.webp'}
+  ],
+  link: [
+    {rel: 'canonical', href: 'https://example.com/portfolio'}
+  ]
+})
+
+onMounted(() => {
+  fetch('https://firebasestorage.googleapis.com/v0/b/dive-event.firebasestorage.app/o/test%2Ffavicon.png?alt=media&token=7a86f141-041c-4f34-b23d-278e4ad84b9d');
+})
+
 </script>
 
 <template>
