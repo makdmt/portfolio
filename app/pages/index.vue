@@ -24,7 +24,7 @@ useHead({
     {name: 'twitter:image', content: 'https://makdmt.github.io/portfolio/imgs/preview.jpg'}
   ],
   link: [
-    {rel: 'canonical', href: 'https://example.com/portfolio'}
+    {rel: 'canonical', href: 'https://makdmt.github.io/portfolio'}
   ]
 })
 
