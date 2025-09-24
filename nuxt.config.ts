@@ -2,6 +2,7 @@
 export default defineNuxtConfig({
     compatibilityDate: '2025-07-15',
     devtools: {enabled: true},
+    ssr: true,
     app: {
         baseURL: '/portfolio/',
         buildAssetsDir: 'assets/',
@@ -16,8 +17,14 @@ export default defineNuxtConfig({
         },
     },
     nitro: {
+        preset: 'static',
         prerender: {
             routes: ['/']
+        }
+    },
+    vite: {
+        build: {
+            target: ['es2020'],
         }
     }
 })
