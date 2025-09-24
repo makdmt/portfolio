@@ -6,13 +6,13 @@ let lastScroll = 0;
 let lastTime = Date.now();
 
 function handleHeaderVisibilityOnScroll() {
-  const current = window.scrollY;
+  const current = window.scrollY || document.documentElement.scrollTop;
   const now = Date.now();
   const deltaY = current - lastScroll;
   const deltaT = now - lastTime;
   const speed = deltaY / (deltaT || 1); // px/ms
 
-  if (deltaY > 0) {
+  if (deltaY > 15) {
     isHidden.value = true;
   } else if (deltaY < 0) {
     if (Math.abs(speed) > 1.5) {
@@ -26,12 +26,12 @@ function handleHeaderVisibilityOnScroll() {
 const activeLink = ref<'aboutMe' | 'myProjects' | 'footer'>('aboutMe');
 
 function activateLinkOnScroll() {
-  if (window.scrollY < 300) {
+  const scrollTop = window.scrollY || document.documentElement.scrollTop;
+  if (scrollTop < 300) {
     activeLink.value = 'aboutMe';
     return;
   }
 
-  const scrollTop = window.scrollY || document.documentElement.scrollTop;
   const windowHeight = window.innerHeight;
   const docHeight = document.documentElement.scrollHeight;
 
