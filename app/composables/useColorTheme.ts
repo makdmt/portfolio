@@ -17,18 +17,9 @@ export function useColorTheme() {
     }
 
     onMounted(() => {
-        const saved = localStorage.getItem(THEME_KEY) as Theme | null
-        if (saved === 'light' || saved === 'dark') {
-            applyTheme(saved)
-            return
-        }
-
-        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-            applyTheme('dark')
-            return
-        }
-
-        applyTheme('light')
+        // data-theme attributes sets by inlined script;
+        const initialThemeValue = document.documentElement.getAttribute('data-theme') as Theme || 'light';
+        theme.value = initialThemeValue;
     })
 
     return {

@@ -15,6 +15,20 @@ export default defineNuxtConfig({
             title: 'Дмитрий Макаров. Портфолио',
             link: [
                 {rel: 'icon', type: 'image/x-icon', href: '/portfolio/favicon.png'}
+            ],
+            script: [{
+                innerHTML: `
+            (function() {
+              //sets initial theme value from localStorage if saved before, or see system settings 
+              let colorTheme = localStorage.getItem('colorTheme');
+              if (!colorTheme) {
+                colorTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+              }
+              document.documentElement.setAttribute('data-theme', colorTheme);
+            })();
+            `,
+                type: 'text/javascript',
+            }
             ]
         },
     },
