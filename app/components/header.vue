@@ -60,6 +60,7 @@ onUnmounted(() => {
 
 <template>
   <header class="header" :class="{hidden: isHidden}">
+    <slot/>
     <nav class="links_container">
       <a class="link" href="#aboutMe" :class="{active: activeLink === 'aboutMe'}">Обо мне</a>
       <a class="link" href="#myProjects" :class="{active: activeLink === 'myProjects'}">Проекты</a>
@@ -78,6 +79,9 @@ onUnmounted(() => {
   transition: transform 0.3s ease;
   z-index: 10;
   background: var(--surface-primary);
+  display: flex;
+  justify-content: space-between;
+
 }
 
 .header.hidden {
@@ -85,7 +89,7 @@ onUnmounted(() => {
 }
 
 .links_container {
-  margin-block-start: auto;
+  margin-inline-start: auto;
   display: flex;
   justify-content: flex-end;
   gap: 8px;
@@ -103,6 +107,12 @@ onUnmounted(() => {
 
 
 @media only screen and (max-width: 725px) {
+  .link {
+    margin-inline-end: 0;
+  }
+}
+
+@media only screen and (max-width: 400px) {
   .link {
     padding: 22px 8px;
   }
