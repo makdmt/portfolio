@@ -4,6 +4,7 @@
 :root {
     --surface-primary: #f8f8f8;
     --text-primary: #222;
+    --border-primary: white;
     --white: white;
     /*--surface-secondary: #2b3036;*/
     /*--surface-accent: #b2c9e5;*/
@@ -11,6 +12,13 @@
     /*--text-accent: #7ab8ff;*/
 
     color-scheme: light;
+}
+
+[data-theme="dark"] {
+    --surface-primary: #181a1b;
+    --text-primary: #e8e6e3;
+    --border-primary: black;
+    color-scheme: dark;
 }
 
 html {
@@ -23,6 +31,7 @@ body {
     margin: 0 auto;
     color: var(--text-primary);
     background-color: var(--surface-primary);
+    transition: background-color 0.2s ease, color 0.3s ease;
 }
 
 .content_container {
@@ -90,11 +99,27 @@ a:hover {
     opacity: .8;
 }
 
+button {
+    all: unset;
+    font-family: "Montserrat", "Arial", sans-serif;
+    cursor: pointer;
+    transition: opacity 200ms ease-in-out;
+    color: var(--text-primary);
+    border-radius: 8px;
+    padding-block: 1px;
+    padding-inline: 6px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+button:hover {
+    opacity: .8;
+}
+
 @media only screen and (max-width: 725px) {
     h1 {
         font-size: 48px;
         line-height: 56px;
-
     }
 
     h3 {
