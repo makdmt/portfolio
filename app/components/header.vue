@@ -116,6 +116,10 @@ onUnmounted(() => {
   .link {
     padding: 22px 8px;
   }
+
+  .links_container {
+    margin-inline-end: 8px;
+  }
 }
 
 </style>

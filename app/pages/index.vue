@@ -68,7 +68,6 @@ const {theme, toggleTheme} = useColorTheme();
 .color_theme_button {
   margin-inline-start: 8px;
   fill: #CFCFCF;
-  width: 20px;
 }
 
 @media only screen and (max-width: 725px) {
