@@ -7,12 +7,13 @@ export function useColorTheme() {
 
     const applyTheme = (t: Theme) => {
         document.documentElement.setAttribute('data-theme', t)
-        localStorage.setItem(THEME_KEY, t)
         theme.value = t
     }
 
     const toggleTheme = () => {
-        applyTheme(theme.value === 'dark' ? 'light' : 'dark')
+        const themeToApply = theme.value === 'dark' ? 'light' : 'dark';
+        applyTheme(themeToApply);
+        localStorage.setItem(THEME_KEY, themeToApply);
     }
 
     onMounted(() => {
