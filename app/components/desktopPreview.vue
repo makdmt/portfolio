@@ -51,7 +51,7 @@ function emitter(success: boolean) {
 <style scoped>
 
 .image {
-  border: 4px solid var(--white);
+  border: 4px solid var(--border-primary);
   border-radius: 16px;
   width: 488px;
   height: 340px;

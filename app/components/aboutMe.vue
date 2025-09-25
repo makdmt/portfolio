@@ -73,7 +73,7 @@
 }
 
 .image {
-  border: 4px solid var(--white);
+  border: 4px solid var(--border-primary);
   border-radius: 16px;
   box-shadow: 17px 17px 48px #0000001f;
 }
