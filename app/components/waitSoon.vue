@@ -4,10 +4,12 @@ const props = defineProps<{
   activate?: boolean;
 }>();
 
+const {theme} = useColorTheme();
+
 </script>
 
 <template>
-  <div v-if="activate" class="overlay">
+  <div v-if="activate" class="overlay" :class="{overlay__dark_theme: theme === 'dark'}">
     <p class="text">Скоро<span class="ellipsis"></span></p>
     <slot/>
   </div>
@@ -27,6 +29,10 @@ const props = defineProps<{
   inset: 0;
   background: rgba(0, 0, 0, 0.6);
   border-radius: 16px;
+}
+
+.overlay__dark_theme::after {
+  background: rgba(0, 0, 0, 0.45);
 }
 
 .text {
