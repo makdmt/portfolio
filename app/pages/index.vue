@@ -1,5 +1,9 @@
 <script setup lang="ts">
 
+import {useColorTheme} from "../composables/useColorTheme";
+import SunIcon from "../components/icons/sunIcon.vue";
+import FullMoonIcon from "../components/icons/fullMoonIcon.vue";
+
 useHead({
   meta: [
     {name: 'description', content: 'Портфолио проектов и навыки веб-разработки Дмитрия Макарова.'},
@@ -32,10 +36,17 @@ onMounted(() => {
   fetch('https://firebasestorage.googleapis.com/v0/b/dive-event.firebasestorage.app/o/test%2Ffavicon.png?alt=media&token=7a86f141-041c-4f34-b23d-278e4ad84b9d');
 })
 
+const {theme, toggleTheme} = useColorTheme();
+
 </script>
 
 <template>
-  <Header/>
+  <Header>
+    <button aria-hidden="true" @click="toggleTheme" class="color_theme_button">
+      <SunIcon v-if="theme === 'light'"/>
+      <FullMoonIcon v-else-if="theme === 'dark'"/>
+    </button>
+  </Header>
   <main>
     <AboutMe id="aboutMe"/>
     <MyProjects id="myProjects"/>
@@ -52,6 +63,12 @@ onMounted(() => {
 
 #myProjects {
   scroll-margin-block: 32px;
+}
+
+.color_theme_button {
+  margin-inline-start: 8px;
+  fill: #CFCFCF;
+  width: 20px;
 }
 
 @media only screen and (max-width: 725px) {
