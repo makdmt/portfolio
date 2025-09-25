@@ -3,7 +3,7 @@ type Theme = 'light' | 'dark'
 const THEME_KEY = 'colorTheme'
 
 export function useColorTheme() {
-    const theme = useState<Theme>('colorTheme', () => 'light');
+    const theme = useState<Theme>('colorTheme');
 
     const applyTheme = (t: Theme) => {
         document.documentElement.setAttribute('data-theme', t)
@@ -18,7 +18,8 @@ export function useColorTheme() {
 
     onMounted(() => {
         // data-theme attributes sets by inlined script;
-        const initialThemeValue = document.documentElement.getAttribute('data-theme') as Theme || 'light';
+        let initialThemeValue = document.documentElement.getAttribute('data-theme') as Theme;
+        initialThemeValue = initialThemeValue === 'dark' ? 'dark' : 'light'
         theme.value = initialThemeValue;
     })
 
