@@ -1,6 +1,6 @@
 export type PreviewFormat = 'mobile' | 'desktop';
 
-export type Technologies = 'PWA' | 'React' | 'Vue' | 'Formatjs' | 'Node' | 'Express' | 'Firebase' | 'Tilda';
+export type Technologies = 'PWA' | 'React' | 'Vue' | 'Nuxt' | 'Formatjs' | 'Node' | 'Express' | 'Firebase' | 'Tilda' | 'MongoDb' | 'Antdv';
 
 export type Project = {
     title: string,
